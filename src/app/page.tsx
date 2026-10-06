@@ -44,7 +44,7 @@ export default function Home() {
         </section>
 
         <Marquee
-          items={["Three bottles a month", "From all over the world", "Picked by us", "No wine snobs"]}
+          items={["Three bottles a month", "From all over the world", "Picked by us"]}
           className="display bg-yellow py-3 text-2xl text-green sm:text-3xl"
         />
 
@@ -134,7 +134,7 @@ export default function Home() {
             <Reveal className="flex items-end gap-3 text-left">
               <span className="display text-5xl sm:text-7xl">The box</span>
               <span className="leader mb-3 flex-1 border-b-[3px] border-dotted border-green" aria-hidden />
-              <CountUp to={plan.price} className="display text-5xl sm:text-7xl" />
+              <span className="display text-5xl sm:text-7xl">$<CountUp to={plan.price} /></span>
             </Reveal>
             <p className="mt-4 text-left text-lg sm:text-xl">
               {plan.bottles} bottles and our notes on each, every month.
