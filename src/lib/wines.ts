@@ -16,7 +16,6 @@ export type Wine = {
   drinkWith: string;
   serve: string;
   colour: string; // accent used on the ticket
-  ink: string; // text colour on that accent
 };
 
 export const plan = {
@@ -52,7 +51,6 @@ export const wines: Wine[] = [
     drinkWith: "Pizza on the couch, or anything with chilli",
     serve: "Fridge-cold, then let it warm up a bit in the glass",
     colour: "#E8794A",
-    ink: "#1C1C1C",
   },
   {
     slug: "petits-matins",
@@ -77,7 +75,6 @@ export const wines: Wine[] = [
     drinkWith: "Roast chook, charcuterie, takeaway dumplings",
     serve: "20 minutes in the fridge. Yes, really.",
     colour: "#C23A4B",
-    ink: "#FAFAFA",
   },
   {
     slug: "siesta",
@@ -102,7 +99,6 @@ export const wines: Wine[] = [
     drinkWith: "Lamb, a big pot of beans, a cheese board",
     serve: "Room temp, or just a touch cooler",
     colour: "#F8ED48",
-    ink: "#194E3E",
   },
 ];
 

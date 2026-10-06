@@ -4,33 +4,20 @@ import { plan } from "@/lib/wines";
 
 export const Zzz = () => <span aria-hidden>ᶻ 𝗓 𐰁</span>;
 
+// Mirrors the plain-text nav on sleepyscafeandwinebar.com.au
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 bg-green text-yellow">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" className="flex items-end gap-2.5" aria-label="Sleepys Wine Club home">
-          <Image
-            src="/img/logo.png"
-            alt="Sleepys"
-            width={1500}
-            height={321}
-            priority
-            className="h-6 w-auto sm:h-7"
-          />
-          <span className="display pb-px text-[15px] tracking-wide sm:text-base">Wine Club</span>
+    <header className="bg-green text-yellow">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 sm:px-8">
+        <Link href="/" aria-label="Sleepys Wine Club home">
+          <Image src="/img/logo.png" alt="Sleepys" width={1500} height={321} priority className="h-7 w-auto sm:h-9" />
         </Link>
-        <nav className="flex items-center gap-1 text-sm font-medium sm:gap-2">
-          <Link href="/#this-month" className="hidden rounded-full px-3 py-2 hover:underline sm:block">
+        <nav className="flex items-center gap-5 text-lg sm:gap-7 sm:text-xl">
+          <Link href="/#list" className="hover:underline">
             This month
           </Link>
-          <Link href="/#how" className="hidden rounded-full px-3 py-2 hover:underline sm:block">
-            How it works
-          </Link>
-          <Link
-            href="/join"
-            className="rounded-full bg-yellow px-4 py-2 font-semibold text-green transition hover:-translate-y-0.5"
-          >
-            Join the club
+          <Link href="/join" className="hover:underline">
+            Sign up
           </Link>
         </nav>
       </div>
@@ -55,51 +42,30 @@ export function Marquee({ items, className = "" }: { items: string[]; className?
   );
 }
 
-/* Round sticker with text running around the edge, like a bottle-shop price sticker */
-export function Sticker({ text, center, className = "" }: { text: string; center: string; className?: string }) {
-  return (
-    <div className={`grid size-32 place-items-center rounded-full bg-yellow text-green shadow-[0_8px_30px_rgba(0,0,0,0.25)] sm:size-36 ${className}`}>
-      <svg viewBox="0 0 100 100" className="animate-spin-slow absolute inset-0 size-full" aria-hidden>
-        <defs>
-          <path id="circle" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
-        </defs>
-        <text className="fill-current text-[9.5px] font-bold uppercase tracking-[0.18em]">
-          <textPath href="#circle">{text}</textPath>
-        </text>
-      </svg>
-      <span className="display text-center text-2xl leading-[0.85]">{center}</span>
-    </div>
-  );
-}
-
 export function Footer() {
   return (
-    <footer className="bg-green-deep text-cream">
+    <footer className="bg-green text-cream">
       <Marquee
         items={["Good food", "Good coffee", "Good wine", "Good people"]}
-        className="display border-b border-white/10 py-4 text-3xl text-yellow"
+        className="display border-y border-white/10 py-4 text-3xl text-yellow"
       />
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:grid-cols-3 sm:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 text-sm leading-relaxed sm:grid-cols-3 sm:px-8">
         <div>
-          <Image src="/img/logo.png" alt="Sleepys" width={1500} height={321} className="h-8 w-auto" />
-          <p className="mt-4 max-w-xs text-sm text-cream/70">
-            Cafe by day, wine bar by night. Now in your fridge once a month, too.
-          </p>
+          <p className="display mb-3 text-xl text-yellow">Sleepys by night</p>
+          <p>Wednesday to Sunday</p>
+          <p>5:30pm to 10pm</p>
         </div>
-        <div className="text-sm leading-relaxed">
-          <p className="display mb-3 text-xl text-yellow">Pick up & say hi</p>
+        <div>
+          <p className="display mb-3 text-xl text-yellow">Location</p>
           <p>{plan.pickup}</p>
           <p>Carlton North VIC 3054</p>
-          <p className="mt-3 text-cream/70">Wine bar open Wed to Sun, 5:30pm to 10pm</p>
         </div>
-        <div className="text-sm leading-relaxed">
-          <p className="display mb-3 text-xl text-yellow">Keep up</p>
-          <a className="underline-offset-4 hover:underline" href="https://www.instagram.com/sleepyscafeandwinebar/">
+        <div>
+          <p className="display mb-3 text-xl text-yellow">Stay sleepy</p>
+          <a className="hover:underline" href="https://www.instagram.com/sleepyscafeandwinebar/">
             @sleepyscafeandwinebar
           </a>
-          <p className="mt-3 text-cream/70">
-            You must be 18+ to join. Liquor licence no. 00000000.
-          </p>
+          <p className="mt-3 text-cream/60">18+ only. Liquor licence no. 00000000.</p>
         </div>
       </div>
     </footer>
