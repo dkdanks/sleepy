@@ -2,9 +2,9 @@
 
 Monthly wine subscription MVP for Sleepys Cafe & Wine Bar (Carlton North).
 
-- `/` landing page: the pitch, how it works, this month's picks, pricing and delivery
-- `/wine/[slug]` sommelier profile for each bottle
-- `/join` sign-up flow (style, optional taste quiz, delivery or pickup, details, review). Payment is not wired yet.
+- `/` landing page: a note from the wine guys, this month's list, the price and delivery
+- `/wine/[slug]` the note card for each bottle
+- `/join` fill-in-the-blanks sign-up note. Payment is not wired yet.
 
 Monthly picks, price and pickup address live in `src/lib/wines.ts`.
 
