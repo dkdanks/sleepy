@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Archivo, Figtree, Instrument_Serif } from "next/font/google";
+import { Schibsted_Grotesk, Sofia_Sans_Extra_Condensed, Sorts_Mill_Goudy } from "next/font/google";
 import "./globals.css";
 
-const archivo = Archivo({
-  variable: "--font-archivo",
-  subsets: ["latin"],
-  axes: ["wdth"],
-});
-
-const figtree = Figtree({
-  variable: "--font-figtree",
+// Closest free match to the Helvetica Condensed in the Sleepys wordmark
+const display = Sofia_Sans_Extra_Condensed({
+  variable: "--font-display-face",
   subsets: ["latin"],
 });
 
-const instrument = Instrument_Serif({
-  variable: "--font-instrument",
+const sans = Schibsted_Grotesk({
+  variable: "--font-sans-face",
+  subsets: ["latin"],
+});
+
+// Old-style serif for the handwritten-letter voice of the wine notes
+const serif = Sorts_Mill_Goudy({
+  variable: "--font-serif-face",
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
@@ -30,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-AU"
-      className={`${archivo.variable} ${figtree.variable} ${instrument.variable}`}
+      className={`${display.variable} ${sans.variable} ${serif.variable}`}
     >
       <body className="min-h-dvh">{children}</body>
     </html>

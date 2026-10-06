@@ -9,7 +9,7 @@ export function Header() {
   return (
     <header className="bg-green text-yellow">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-20 sm:px-8">
-        <Link href="/" aria-label="Sleepys Wine Club home">
+        <Link href="/" aria-label="Sleepys Wine Club home" className="yawn">
           <Image src="/img/logo.png" alt="Sleepys" width={1500} height={321} priority className="h-7 w-auto sm:h-9" />
         </Link>
         <nav className="flex items-center gap-5 text-lg sm:gap-7 sm:text-xl">

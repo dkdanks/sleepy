@@ -13,13 +13,17 @@ export async function generateMetadata(props: PageProps<"/wine/[slug]">): Promis
   return { title: wine ? `${wine.name} · Sleepys Wine Club` : "Sleepys Wine Club" };
 }
 
-function ScaleRow({ scale }: { scale: Scale }) {
+function ScaleRow({ scale, row }: { scale: Scale; row: number }) {
   return (
     <div className="grid grid-cols-[4.5rem_1fr_4.5rem] items-center gap-3 text-sm">
       <span>{scale.left}</span>
       <div className="flex justify-between" role="img" aria-label={`${scale.value} out of 5, ${scale.left} to ${scale.right}`}>
         {[1, 2, 3, 4, 5].map((n) => (
-          <span key={n} className={`size-3 rounded-full border-[1.5px] border-green ${n === scale.value ? "bg-green" : ""}`} />
+          <span key={n} className="relative size-3 rounded-full border-[1.5px] border-green">
+            {n === scale.value && (
+              <span className="pop absolute -inset-px rounded-full bg-green" style={{ animationDelay: `${700 + row * 180}ms` }} />
+            )}
+          </span>
         ))}
       </div>
       <span className="text-right">{scale.right}</span>
@@ -61,8 +65,8 @@ export default async function WinePage(props: PageProps<"/wine/[slug]">) {
 
             <div className="mt-12 grid gap-10 border-t-2 border-dashed border-ink/15 pt-10 sm:grid-cols-2">
               <div className="space-y-3 text-green">
-                {wine.scales.map((s) => (
-                  <ScaleRow key={s.left} scale={s} />
+                {wine.scales.map((s, row) => (
+                  <ScaleRow key={s.left} scale={s} row={row} />
                 ))}
               </div>
               <dl className="space-y-4 text-lg">
